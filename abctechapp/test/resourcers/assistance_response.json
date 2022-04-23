@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Troca de fiação externa",
+        "description": "Substituição de fiação externa da residência"
+    },
+    {
+        "id": 2,
+        "name": "Troca de fiação banheiro",
+        "description": "Substituição de fiação banheiro da residência"
+    },
+    {
+        "id": 3,
+        "name": "Troca de fiação interna",
+        "description": "Substituição de fiação interna da residência"
+    }
+]
