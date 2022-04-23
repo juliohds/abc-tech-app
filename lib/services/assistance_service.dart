@@ -6,8 +6,7 @@ import '../model/assistance.dart';
 
 abstract class AssistanceServiceInterface {
   Future<List<Assistance>> getAssists();
-  Future<AssistanceServiceInterface> init(
-      AssistanceProviderInterface provider);
+  Future<AssistanceServiceInterface> init(AssistanceProviderInterface provider);
 }
 
 class AssistanceService extends GetxService
@@ -20,7 +19,7 @@ class AssistanceService extends GetxService
     if (response.hasError) {
       return Future.error(ErrorDescription("Erro na conexão"));
     }
-    try {
+    try {      
       List<Assistance> listResult = response.body
           .map<Assistance>((item) => Assistance.fromMap(item))
           .toList();
