@@ -9,19 +9,6 @@ class InitialPage extends GetView<InitialController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Color(0xFF007BFF),
-            Color(0xFF00BBFF),
-            Color(0xFF00BBFF),
-            Color(0xFFA0DFF5),
-          ],
-        ),
-        border: Border.all(
-            style: BorderStyle.solid, color: Colors.blue)),
         constraints: const BoxConstraints.expand(),
         child: Center(
           child: SingleChildScrollView(
@@ -32,7 +19,7 @@ class InitialPage extends GetView<InitialController> {
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [                      
+                    children: [
                       Ink(
                         decoration: const ShapeDecoration(
                         shape: CircleBorder(), color: Colors.black87),

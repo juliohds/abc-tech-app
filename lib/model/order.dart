@@ -4,22 +4,22 @@ import 'package:abctechapp/model/order_location.dart';
 
 class Order {
   int operatorId;
-  List<int> services = [];
+  List<int> tasks = [];
   OrderLocation? start;
   OrderLocation? end;
 
   Order(
       {required this.operatorId,
-      required this.services,
+      required this.tasks,
       required this.start,
       required this.end});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'operatorId': operatorId,
-      'services': services,
-      'start': start?.toMap(),
-      'end': end?.toMap()
+      'tasks': tasks,
+      'startOrderLocation': start?.toMap(),
+      'endOrderLocation': end?.toMap()
     };
   }
 

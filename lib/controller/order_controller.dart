@@ -50,7 +50,7 @@ class OrderController extends GetxController with StateMixin<OrderCreated> {
         _getLocation().then((value) {
           _order = Order(
               operatorId: int.parse(operatorIdController.text),
-              services: getServicesIds(),
+              tasks: getServicesIds(),
               start: orderLocationFromPosition(value),
               end: null);
         });

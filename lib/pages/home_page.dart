@@ -23,7 +23,7 @@ class HomePage extends GetView<AssistanceController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Assistências & Serviços")),
+      appBar: AppBar(title: const Text("Assistências & Serviços"), backgroundColor: Colors.black87),
       body: Container(
         constraints: const BoxConstraints.expand(),
         child: SingleChildScrollView(
@@ -52,6 +52,7 @@ class HomePage extends GetView<AssistanceController> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blueGrey,
           onPressed: () => controller.getAssistanceList(),
           child: const Icon(Icons.refresh)),
     );

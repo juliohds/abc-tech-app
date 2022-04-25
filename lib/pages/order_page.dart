@@ -7,6 +7,10 @@ import 'package:get/get.dart';
 class OrderPage extends GetView<OrderController> {
   const OrderPage({Key? key}) : super(key: key);
 
+  exitApp() {
+    Get.toNamed("/");
+  }
+
   Widget renderAssists(List<Assistance> assists) {
     return ListView.builder(
         shrinkWrap: true,
@@ -20,11 +24,13 @@ class OrderPage extends GetView<OrderController> {
   }
 
   Widget renderFromScreen(BuildContext context) {
-    return SingleChildScrollView(
-      child: Form(
+    return Center(child: Align(alignment: Alignment.center,
+        child: SingleChildScrollView(
+        child: Form(
         key: controller.formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(children: const [
               Expanded(
@@ -53,7 +59,7 @@ class OrderPage extends GetView<OrderController> {
                       child: Obx((() {
                             return Text(
                                 message(!controller.selectedAssistances.isNotEmpty),
-                                textAlign: TextAlign.left,
+                                textAlign: TextAlign.center,
                                 style: const TextStyle(
                                     fontSize: 16.0, fontWeight: FontWeight.bold),
                               );
@@ -73,7 +79,8 @@ class OrderPage extends GetView<OrderController> {
             Obx(
               () => renderAssists(controller.selectedAssistances),
             ),
-            Row(children: [
+            Row(
+              children: [
               Expanded(
                   child: ElevatedButton(onPressed: () {
                 FocusScope.of(context).unfocus();
@@ -89,17 +96,24 @@ class OrderPage extends GetView<OrderController> {
           ],
         ),
       ),
-    );
+    ),),);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Ordem de serviço"),
-        ),
+          title: const Text("Ordem de serviço"), backgroundColor: Colors.black87,
+          actions: [IconButton(
+            icon: const Icon(
+              Icons.exit_to_app,
+              color: Colors.white,
+            ),
+            onPressed: exitApp,
+          ),
+          ]),
         body: Container(
-            constraints: const BoxConstraints.expand(),
+            constraints: const BoxConstraints(maxWidth: 500, maxHeight: 500),
             padding: const EdgeInsets.all(10.0),
             child: controller.obx((state) => renderFromScreen(context),
                 onLoading: const Center(child: CircularProgressIndicator()),
