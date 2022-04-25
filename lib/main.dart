@@ -1,5 +1,7 @@
 import 'package:abctechapp/pages/home_bind.dart';
 import 'package:abctechapp/pages/home_page.dart';
+import 'package:abctechapp/pages/initial_bind.dart';
+import 'package:abctechapp/pages/initial_page.dart';
 import 'package:abctechapp/pages/order_bind.dart';
 import 'package:abctechapp/pages/order_page.dart';
 import 'package:abctechapp/provider/assistance_provider.dart';
@@ -23,16 +25,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: '',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       getPages: [
+        GetPage(name: "/", page: () => const InitialPage(), binding: InitialBind()),
+        GetPage(
+            name: "/order",
+            page: () => const OrderPage(),
+            binding: OrderBind()),
         GetPage(
             name: "/services",
             page: () => const HomePage(),
             binding: HomeBind()),
-        GetPage(name: "/", page: () => const OrderPage(), binding: OrderBind())
       ],
     );
   }

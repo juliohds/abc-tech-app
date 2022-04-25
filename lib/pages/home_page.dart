@@ -12,7 +12,7 @@ class HomePage extends GetView<AssistanceController> {
         itemCount: list.length,
         itemBuilder: (context, index) => ListTile(
               title: Text(list[index].name),
-              selectedColor: Colors.blueAccent,
+              selectedColor: Colors.blueGrey,
               selected: controller.isSelected(index),
               onTap: () {
                 controller.selectAssist(index);
@@ -33,8 +33,14 @@ class HomePage extends GetView<AssistanceController> {
               Row(
                 children: const [
                   Expanded(
-                      child: Text("Os serviços disponíveis são:",
-                          textAlign: TextAlign.left))
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 25, bottom: 25),
+                        child: Text(
+                        'Selecione os serviços disponíveis:',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                      )))
                 ],
               ),
               controller.obx((state) => renderAssists(state ?? []),

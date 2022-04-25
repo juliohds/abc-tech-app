@@ -15,6 +15,10 @@ class OrderPage extends GetView<OrderController> {
             ListTile(title: Text(assists[index].name)));
   }
 
+  String message(bool isValid) {
+    return isValid ? 'Selecione os serviços a serem prestados' : 'Serviços selecionados:';
+  }
+
   Widget renderFromScreen(BuildContext context) {
     return SingleChildScrollView(
       child: Form(
@@ -27,7 +31,7 @@ class OrderPage extends GetView<OrderController> {
                   child: Text(
                 'Preencha o fomulário de ordem de serviço',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               ))
             ]),
             Obx(() {
@@ -43,18 +47,20 @@ class OrderPage extends GetView<OrderController> {
               );
             }),
             Row(children: [
-              const Expanded(
+              Expanded(
                   child: Padding(
                       padding: EdgeInsets.only(top: 25, bottom: 25),
-                      child: Text(
-                        'Selecione os serviços a serem prestados',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontSize: 14.0, fontWeight: FontWeight.bold),
-                      ))),
+                      child: Obx((() {
+                            return Text(
+                                message(!controller.selectedAssistances.isNotEmpty),
+                                textAlign: TextAlign.left,
+                                style: const TextStyle(
+                                    fontSize: 16.0, fontWeight: FontWeight.bold),
+                              );
+                      })))),
               Ink(
                   decoration: const ShapeDecoration(
-                      shape: CircleBorder(), color: Colors.blueAccent),
+                      shape: CircleBorder(), color: Colors.black87),
                   child: IconButton(
                       icon: const Icon(
                         Icons.search,
@@ -74,7 +80,7 @@ class OrderPage extends GetView<OrderController> {
                 controller.finishStartOrder();
               }, child: Obx((() {
                 if (controller.screenState.value == OrderState.creating) {
-                  return const Text("Inicar serviço");
+                  return const Text("Iniciar serviço");
                 } else {
                   return const Text("Finalizar serviço");
                 }

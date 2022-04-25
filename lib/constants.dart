@@ -1,4 +1,4 @@
 class Constants {
-  static const url = "http://localhost:8081";
+  static const url = "localhost:8081";
 
 }
