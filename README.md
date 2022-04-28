@@ -1,4 +1,4 @@
-# Fiap-tech-service-api
+# Fiap-tech-service-app
 
 A ABC TechService é uma empresa que presta serviços para diferentes empresas dos ramos de telecomunicações, elétrica ou manutenções de linha branca, como geladeiras, fogões e máquinas de lavar.
 Alguns problemas reportados por clientes finais e pelas empresas parceiras estão gerando prejuízos e riscos operacionais que podem levar a quebra de contratos.
